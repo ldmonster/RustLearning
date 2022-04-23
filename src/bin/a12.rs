@@ -74,10 +74,15 @@ impl Box {
 }
 
 fn main() {
-    let mut box_vec = Vec::new();
-    box_vec.push(Box::create_box(1,1,1,1,Color::Red));
-    box_vec.push(Box::create_box(2,2,2,2,Color::Green));
-    box_vec.push(Box::create_box(3,3,3,3,Color::Blue));
+    // let mut box_vec = Vec::new();
+    // box_vec.push(Box::create_box(1,1,1,1,Color::Red));
+    // box_vec.push(Box::create_box(2,2,2,2,Color::Green));
+    // box_vec.push(Box::create_box(3,3,3,3,Color::Blue));
+    let box_vec = vec![
+        Box::create_box(1,1,1,1,Color::Red),
+        Box::create_box(2,2,2,2,Color::Green),
+        Box::create_box(3,3,3,3,Color::Blue),
+    ];
     for item in box_vec {
         item.print_box();
     }

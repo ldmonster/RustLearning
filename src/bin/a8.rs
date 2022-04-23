@@ -18,7 +18,7 @@ enum Flavors {
 struct Drink {
     flavor:Flavors,
     value:f32,
-    name:&'static str, // mine experiment with string in structures
+    name:String, // mine experiment with string in structures
 }
 
 fn get_drinks_data() -> Vec<Drink> {
@@ -26,28 +26,28 @@ fn get_drinks_data() -> Vec<Drink> {
     vec.push(Drink{
         flavor: Flavors::Sweet, 
         value: 0.5, 
-        name:"Caluah",
+        name:"Caluah".to_string(),
     });
     vec.push(Drink{
         flavor: Flavors::Hot, 
         value: 1.5, 
-        name:"Absent",
+        name:"Absent".to_string(),
     });
     vec.push(Drink{
         flavor: Flavors::Sevukha, 
         value: 0.7, 
-        name:"Vodka",
+        name:"Vodka".to_string(),
     });
     vec
 }
 
 fn print_drinks(vec:Vec<Drink>) {
     for drink in vec {
-        let flavor:&'static str;
+        let flavor:String;
         match drink.flavor {
-            Flavors::Sweet => flavor = "Sweet",
-            Flavors::Hot => flavor = "Hot",
-            Flavors::Sevukha => flavor = "Sevukha",
+            Flavors::Sweet => flavor = "Sweet".to_string(),
+            Flavors::Hot => flavor = "Hot".to_string(),
+            Flavors::Sevukha => flavor = "Sevukha".to_string(),
         }
         println!("Drink:\n name: {}\n value: {:?}\n flavor: {}\n", drink.name, drink.value, flavor);
     }
