@@ -25,4 +25,29 @@ fn find_user(name: &str) -> Option<i32> {
     }
 }
 
-fn main() {}
+fn get_users_names() -> Vec<String> {
+    vec![
+        "sam".to_string(),
+        "jam".to_string(),
+        "matt".to_string(),
+        "bashmatt".to_string(),
+        "katrin".to_string(),
+        "katie".to_string(),
+    ]
+}
+
+fn main() {
+    let user_name_vec = get_users_names();
+    for name in user_name_vec{
+        let result = find_user(&name).map(|id|
+            User{
+                user_id: id,
+                name: name.to_string(),
+            }
+        );
+        match result {
+            Some(user) => println!("User found! Id: {:?}, name: {:#?}", user.user_id, user.name),
+            _ => println!("User with name {} isn't found", name),
+        }
+    }
+}
